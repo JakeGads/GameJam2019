@@ -1,6 +1,11 @@
-# import the pygame module
-import pygame
+from subprocess import  call
 
+# import the pygame module
+try:
+    import pygame
+except ImportError:
+    call('pip install pygame')
+    import pygame
 # import random for random numbers!
 import random
 
