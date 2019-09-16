@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
-        self.image = pygame.image.load("smileResized.jpg")
+        self.image = pygame.image.load("spookedResized.jpg")
 
         self.rect = self.image.get_rect()
 
@@ -90,7 +90,7 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 
 running = True
-
+score = 1
 while running:
     clock.tick(50)
     onPar = True
@@ -112,13 +112,6 @@ while running:
         screen.blit(entity.image, entity.rect)
         if entity != player and entity.rect.left == player.rect.left:
             onPar = True
-
-    if onPar:
-        player.somethingComing()
-        onPar = False
-    else:
-        print('We found a safe link')
-
 
     if pygame.sprite.spritecollideany(player, enemies):
         player.kill()
